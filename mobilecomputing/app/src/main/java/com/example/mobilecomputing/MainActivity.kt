@@ -53,7 +53,13 @@ fun AppNavHost(
         composable("options") {
             Column{
                 Button(
-                    onClick = {navController.popBackStack()}) {
+                    onClick = {
+                        navController.navigate("conversation") {
+                            popUpTo("conversation") {
+                                inclusive = true
+                            }
+                        }
+                    }) {
                     Text("Back")
                 }
                 Options(
